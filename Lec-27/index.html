@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Example DOM</title>
+    <style>
+      #mainTitle {
+        font-size: 28px;
+        color: darkgreen;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="mainTitle">
+      <span class="page-title">Web Inventor</span>
+    </h1>
+
+    <script>
+      // Selecting the heading element
+      const title = document.getElementById("mainTitle");
+      console.log("Selected element:", title);
+
+      // Using innerHTML - updates HTML inside element
+      title.innerHTML = "<p>Creator of WWW</p>";
+      console.log("innerHTML:", title.innerHTML);
+
+      // Using innerText - sets text exactly as string (HTML tags shown as text)
+      title.innerText = "<p>Welcome Message</p>";
+      console.log("innerText:", title.innerText);
+
+      // Using textContent - similar to innerText, shows all including hidden
+      title.textContent = "<span>Greetings</span>";
+      console.log("textContent:", title.textContent);
+
+      // Hide element
+      title.style.display = "none";
+      console.log("Title hidden");
+
+      // Show element back
+      title.style.display = "block";
+      console.log("Title visible");
+
+      // Add inner element dynamically
+      title.innerHTML = "<div id='subText'>Hello Universe</div>";
+      const subTextDiv = document.getElementById("subText");
+      console.log("Inner div:", subTextDiv);
+
+      // Show text extraction differences
+      console.log("title.innerText:", title.innerText);
+      console.log("title.textContent:", title.textContent);
+      console.log("subTextDiv.innerText:", subTextDiv.innerText);
+      console.log("subTextDiv.textContent:", subTextDiv.textContent);
+
+      // Hide inner div to show difference
+      subTextDiv.style.display = "none";
+
+      // innerText changes, textContent stays same
+      console.log("subTextDiv.innerText (hidden):", subTextDiv.innerText);
+      console.log("subTextDiv.textContent (hidden):", subTextDiv.textContent);
+    </script>
+  </body>
+</html>
